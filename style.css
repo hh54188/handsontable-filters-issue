@@ -1,0 +1,71 @@
+.handsontable.as-you-type-demo tr:first-child th {
+    vertical-align: bottom;
+}
+
+.handsontable.as-you-type-demo th > div.filterHeader {
+    border-top: 1px solid #CCC;
+}
+
+.handsontable.as-you-type-demo th > div.filterHeader > input {
+    width: calc(100% - 10px);
+    box-shadow: none;
+    border: 1px solid #CCC;
+    margin-top: 1px;
+}
+
+#externalFilter {
+    display: none;
+    margin-left: 10px;
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    margin-bottom: 50px;
+}
+
+#externalFilter > .button-holder {
+    position: relative;
+}
+
+#externalFilter > .button-holder .buttons {
+    left: 5px;
+}
+
+#externalFilter > .demo-columnChoose,
+#externalFilter > .demo-columnChoose > select,
+#externalFilter > .demo-filterSelect {
+    width: 200px;
+}
+
+#externalFilter > .demo-columnChoose > select {
+    display: block;
+    margin: 2px 0px 10px 0px;
+}
+
+#externalFilter > .demo-filterSelect {
+    border: 1px solid #cccccc;
+    max-height: 200px;
+    overflow: auto;
+}
+
+#externalFilter > .demo-filterSelect > .demo-controllers {
+    font-weight: bold;
+    border-bottom: 1px solid #cccccc;
+    background-color: rgb(243, 243, 243);
+    padding: 2px 0px;
+}
+
+#externalFilter > .demo-filterSelect > .demo-controllers {
+    padding: 5px;
+}
+
+#externalFilter > .demo-filterSelect > .demo-items {
+    padding: 5px;
+}
+
+#externalFilter > .demo-filterSelect > .demo-items > .demo-item > label:before {
+    content: ' ';
+    white-space: pre;
+}
+
+#externalFilter > .button-holder {
+    margin-top: 10px;
+}
