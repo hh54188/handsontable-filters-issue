@@ -1,49 +1,55 @@
 <!doctype html>
 <html>
+
 <head>
-<!--    <script src="https://cdn.jsdelivr.net/npm/handsontable@7.0.3/dist/handsontable.full.min.js"></script>-->
-<!--    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@7.0.3/dist/handsontable.full.min.css">-->
-    <script src="/handsontable/dist/handsontable.full.js"></script>
-    <link type="text/css" rel="stylesheet" href="/handsontable/dist/handsontable.full.css">
+    <!--    <script src="https://cdn.jsdelivr.net/npm/handsontable@7.0.3/dist/handsontable.full.min.js"></script>-->
+    <!--    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@7.0.3/dist/handsontable.full.min.css">-->
+    <script src="./handsontable/dist/handsontable.full.js"></script>
+    <link type="text/css" rel="stylesheet" href="./handsontable/dist/handsontable.full.css">
 </head>
+
 <body>
-<div>
-    <div id="example1" class="hot handsontable htRowHeaders htColumnHeaders"></div>
-</div>
-<script>
-    var dataObj = [
-        ['Lorem', 'ipsum', 'dolor', 'sit', '12/1/2015', 23],
-        ['adipiscing', 'elit', 'Ut', 'imperdiet', '5/12/2015', 6],
-        ['Pellentesque', 'vulputate', 'leo', 'semper', '10/23/2015', 26],
-        ['diam', 'et', 'malesuada', 'libero', '12/1/2014', 98],
-        ['orci', 'et', 'dignissim', 'hendrerit', '12/1/2016', 8.5]
-    ];
-    var example1 = document.getElementById('example1');
+    <div>
+        <div id="example1" class="hot handsontable htRowHeaders htColumnHeaders"></div>
+    </div>
+    <script>
+        var dataObj = [
+            ['Z1', 'ipsum', 'dolor', 'sit', '12/1/2015', 23],
+            ['a1', 'elit', 'Ut', 'imperdiet', '5/12/2015', 6],
+            ['Z2', 'vulputate', 'leo', 'semper', '10/23/2015', 26],
+            ['a2', 'et', 'malesuada', 'libero', '12/1/2014', 98],
+            ['Z3', 'et', 'dignissim', 'hendrerit', '12/1/2016', 8.5]
+        ];
+        var example1 = document.getElementById('example1');
 
-    var hot = new Handsontable(example1, {
-        data: dataObj,
-        columns: [
-            {type: 'text'},
-            {type: 'text'},
-            {type: 'text'},
-            {type: 'text'},
-            {type: 'date', dateFormat: 'M/D/YYYY'},
-            {type: 'numeric'}
-        ],
-        colHeaders: true,
-        rowHeaders: true,
-        dropdownMenu: [
-            'filter_by_value',
-        ],
-        filters: true,
-        beforeDropdownMenuSetItems: (menuItems) => {
-            console.log(menuItems);
-        },
-        beforeDropdownMenuShow: (dropdownMenu) => {
-            console.log(dropdownMenu);
-        }
-    });
+        var hot = new Handsontable(example1, {
+            data: dataObj,
+            columns: [
+                { type: 'text' },
+                { type: 'text' },
+                { type: 'text' },
+                { type: 'text' },
+                { type: 'date', dateFormat: 'M/D/YYYY' },
+                { type: 'numeric' }
+            ],
+            colHeaders: true,
+            rowHeaders: true,
+            // dropdownMenu: true,
+            dropdownMenu: [
+                'filter_by_value',
+                'filter_action_bar'
+            ],
+            filters: true,
+            beforeFilterValueOptionsShow: (visualIndex, items) => {
+                items.sort((i, j) => {
+                    if (i.value.toString().toLowerCase() < j.value.toString().toLowerCase()) return -1;
+                    if (i.value.toString().toLowerCase() > j.value.toString().toLowerCase()) return 1;
+                    return 0;
+                });
+            },
+        });
 
-</script>
+    </script>
 </body>
+
 </html>
